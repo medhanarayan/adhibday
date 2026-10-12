@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151016">
+  <meta name="description" content="24 hours, 24 letters, and all my love.">
+  <title>24 Hours of Loving You</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --night: #151016;
+      --plum: #291a27;
+      --wine: #7c3348;
+      --rose: #e7b7bd;
+      --cream: #fff4e9;
+      --muted: #c8b7c0;
+      --gold: #d6b77a;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 24px;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(ellipse at 50% 0%, #442338 0%, var(--night) 56%);
+      color: var(--cream);
+      font-family: "DM Sans", sans-serif;
+    }
+
+    button { font: inherit; }
+
+    button:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 4px;
+    }
+
+    .stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .55;
+      background-image:
+        radial-gradient(1px 1px at 12% 18%, #fff 50%, transparent 60%),
+        radial-gradient(1px 1px at 79% 13%, #f5d5d9 50%, transparent 60%),
+        radial-gradient(1px 1px at 65% 45%, #fff 50%, transparent 60%),
+        radial-gradient(1px 1px at 27% 67%, #fff 50%, transparent 60%),
+        radial-gradient(1px 1px at 91% 77%, #f5d5d9 50%, transparent 60%),
+        radial-gradient(1px 1px at 48% 88%, #fff 50%, transparent 60%);
+      z-index: 0;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 1000px;
+      margin: auto;
+      padding: 28px 22px 70px;
+    }
+
+    .topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: .72rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .topline .dot { color: var(--rose); }
+
+    .hero {
+      min-height: 66vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 55px 0 45px;
+    }
+
+    .eyebrow {
+      font-size: .75rem;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--rose);
+    }
+
+    h1, h2, h3, .letter-copy {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 500;
+    }
+
+    h1 {
+      font-size: clamp(3.4rem, 9vw, 7.4rem);
+      line-height: .87;
+      letter-spacing: -.045em;
+      margin: 24px 0 20px;
+      max-width: 850px;
+    }
+
+    h1 em {
+      font-weight: 400;
+      color: var(--rose);
+    }
+
+    .subtitle {
+      max-width: 520px;
+      color: #e0d0d7;
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .heart-orbit {
+      width: 95px;
+      height: 95px;
+      border: 1px solid #a95e70;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin-bottom: 28px;
+      box-shadow: 0 0 50px #8e3b5940;
+      position: relative;
+    }
+
+    .heart-orbit::before,
+    .heart-orbit::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border: 1px solid #a95e704d;
+      border-radius: 50%;
+    }
+
+    .heart-orbit::after {
+      inset: -8px;
+      border-style: dashed;
+      opacity: .5;
+    }
+
+    .heart {
+      font-size: 2.2rem;
+      color: var(--rose);
+      animation: pulse 2.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      50% {
+        transform: scale(1.12);
+        text-shadow: 0 0 25px #f5a8b9;
+      }
+    }
+
+    .primary {
+      margin-top: 28px;
+      border: 1px solid #c27a8b;
+      color: var(--cream);
+      background: linear-gradient(120deg, #783448, #4d263a);
+      padding: 14px 23px;
+      border-radius: 99px;
+      cursor: pointer;
+      box-shadow: 0 8px 30px #0003;
+      transition: .2s;
+    }
+
+    .primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px #0005;
+    }
+
+    .small-note {
+      font-size: .75rem;
+      color: #bdaab4;
+      margin-top: 14px;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: #c28b98;
+      letter-spacing: .3em;
+      font-size: .7rem;
+      text-transform: uppercase;
+      margin: 12px 0 34px;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #8a4a5c);
+      flex: 1;
+    }
+
+    .divider::after { transform: scaleX(-1); }
+
+    .status-panel {
+      border: 1px solid #81506280;
+      background: #241923b8;
+      border-radius: 22px;
+      padding: 23px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 18px;
+      margin: 0 0 25px;
+      backdrop-filter: blur(8px);
+    }
+
+    .status-label {
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: var(--rose);
+    }
+
+    .status-panel h2 {
+      font-size: 2rem;
+      margin: 5px 0;
+    }
+
+    .status-panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.6;
+    }
+
+    .clock {
+      font-variant-numeric: tabular-nums;
+      font-size: clamp(1.4rem, 4vw, 2.3rem);
+      font-family: "Cormorant Garamond", serif;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .clock span {
+      display: block;
+      font: .65rem "DM Sans", sans-serif;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .progress-wrap {
+      height: 3px;
+      background: #563343;
+      border-radius: 9px;
+      overflow: hidden;
+      margin-top: 17px;
+    }
+
+    .progress {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--rose), var(--gold));
+      transition: width .5s;
+    }
+
+    .letters-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 15px;
+      margin: 40px 0 18px;
+    }
+
+    .letters-heading h2 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    .letters-heading p {
+      color: var(--muted);
+      font-size: .82rem;
+      margin: 0 0 7px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .envelope {
+      min-height: 145px;
+      border: 1px solid #79506180;
+      border-radius: 16px;
+      background: linear-gradient(145deg, #2a1b29d9, #1c151f);
+      color: var(--cream);
+      padding: 17px 13px;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s, border-color .2s, background .2s;
+    }
+
+    .envelope.open {
+      cursor: pointer;
+      background: linear-gradient(145deg, #482536, #2a1b29);
+      border-color: #b87586;
+    }
+
+    .envelope.open:hover {
+      transform: translateY(-3px);
+      border-color: var(--rose);
+    }
+
+    .envelope .number {
+      font-size: .67rem;
+      letter-spacing: .17em;
+      color: var(--rose);
+      text-transform: uppercase;
+    }
+
+    .envelope .glyph {
+      font-size: 1.5rem;
+      margin: 14px 0 8px;
+      display: block;
+    }
+
+    .envelope .label {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.18rem;
+      line-height: 1.1;
+      display: block;
+    }
+
+    .envelope .state {
+      font-size: .68rem;
+      color: #bba5b0;
+      display: block;
+      margin-top: 9px;
+    }
+
+    .envelope.locked {
+      color: #9d8793;
+      cursor: not-allowed;
+    }
+
+    .envelope.locked::after {
+      content: "✦";
+      position: absolute;
+      right: 14px;
+      top: 12px;
+      color: #79586a;
+      font-size: .8rem;
+    }
+
+    .final-note {
+      margin-top: 42px;
+      padding: 30px;
+      border: 1px solid #8e5968;
+      border-radius: 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #382031b8, #20151f);
+      display: none;
+    }
+
+    .final-note.show {
+      display: block;
+      animation: rise .8s ease both;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    .final-note .big-heart {
+      font-size: 2rem;
+      color: var(--rose);
+    }
+
+    .final-note h2 {
+      font-size: 2.7rem;
+      margin: 10px 0;
+    }
+
+    .final-note p {
+      max-width: 590px;
+      margin: auto;
+      line-height: 1.9;
+      color: #e4d2db;
+    }
+
+    .footer {
+      text-align: center;
+      color: #8f7a86;
+      font-size: .75rem;
+      line-height: 1.8;
+      margin-top: 48px;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: #0d090ee8;
+      z-index: 10;
+      display: none;
+      place-items: center;
+      padding: 18px;
+      backdrop-filter: blur(9px);
+    }
+
+    .modal.show { display: grid; }
+
+    .paper {
+      width: min(620px, 100%);
+      max-height: 90vh;
+      overflow: auto;
+      background: #fff4e9;
+      color: #392331;
+      border-radius: 5px;
+      padding: clamp(26px, 6vw, 54px);
+      position: relative;
+      box-shadow: 0 25px 100px #0008;
+      animation: paperIn .35s ease;
+    }
+
+    @keyframes paperIn {
+      from { opacity: 0; transform: translateY(12px) scale(.98); }
+      to { opacity: 1; transform: none; }
+    }
+
+    .paper::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border: 1px solid #c99e9b;
+      pointer-events: none;
+    }
+
+    .paper .letter-number {
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      font-size: .67rem;
+      color: #9a5364;
+      padding-right: 25px;
+    }
+
+    .paper h2 {
+      font-size: clamp(2.5rem, 7vw, 4rem);
+      line-height: .95;
+      margin: 16px 0 22px;
+    }
+
+    .letter-copy {
+      font-size: 1.35rem;
+      line-height: 1.55;
+      white-space: pre-line;
+    }
+
+    .signoff {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.6rem;
+      color: #8d3d53;
+      margin-top: 25px;
+    }
+
+    .close {
+      position: absolute;
+      right: 24px;
+      top: 22px;
+      border: 1px solid #c99e9b;
+      background: transparent;
+      color: #6c3a4a;
+      border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      cursor: pointer;
+      z-index: 2;
+      font-size: 1.25rem;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .modal-actions button {
+      border: 1px solid #c99e9b;
+      background: transparent;
+      color: #633447;
+      border-radius: 99px;
+      padding: 10px 14px;
+      cursor: pointer;
+    }
+
+    .modal-actions button:disabled {
+      opacity: .3;
+      cursor: default;
+    }
+
+    .setup-warning {
+      background: #493323;
+      border: 1px solid #bd925b;
+      color: #f8e3be;
+      padding: 13px 16px;
+      border-radius: 12px;
+      font-size: .85rem;
+      line-height: 1.6;
+      margin: 16px 0 0;
+      display: none;
+    }
+
+    .setup-warning.show { display: block; }
+
+    @media (max-width: 680px) {
+      main { padding: 20px 15px 50px; }
+      .topline { font-size: .6rem; }
+      .hero { min-height: 60vh; }
+      .status-panel { grid-template-columns: 1fr; }
+      .clock { text-align: left; }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+      .envelope { min-height: 135px; }
+      .letters-heading { align-items: start; flex-direction: column; }
+      .letters-heading h2 { font-size: 2.2rem; }
+      .status-panel h2 { font-size: 1.7rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="stars" aria-hidden="true"></div>
+
+  <main>
+    <div class="topline">
+      <span>Just for you <span class="dot">♥</span></span>
+      <span id="birthday-date">A birthday surprise</span>
+    </div>
+
+    <section class="hero" id="home">
+      <div class="heart-orbit"><span class="heart">♥</span></div>
+
+      <div class="eyebrow">Happy 24th birthday</div>
+
+      <h1>
+        24 hours.<br>
+        <em>YOU'RE ON MY MIND 24/7</em><br>
+        All my love.
+      </h1>
+
+      <p class="subtitle">
+        On your 24th birthday, every hour opens a letter.
+        Twenty-four letters, written with all my love.
+        A little piece of my heart for every hour of your special day.
+      </p>
+
+      <button class="primary" id="begin-btn">
+        Open with love <span aria-hidden="true">↗</span>
+      </button>
+    </section>
+
+    <div class="divider">a day full of you</div>
+
+    <section class="status-panel" aria-live="polite">
+      <div>
+        <div class="status-label" id="status-label">Until your birthday begins</div>
+        <h2 id="status-title">The first letter is waiting.</h2>
+        <p id="status-desc">
+          At midnight in Boston, your first letter will unlock.
+          Every hour after that, another one will be waiting.
+        </p>
+        <div class="progress-wrap">
+          <div class="progress" id="progress"></div>
+        </div>
+      </div>
+
+      <div class="clock" id="clock">
+        --:--:--
+        <span id="clock-caption">Boston, Massachusetts</span>
+      </div>
+    </section>
+
+    <div class="setup-warning" id="setup-warning">
+      Set his birthday in the CONFIG section of the JavaScript using
+      YYYY-MM-DD format before sharing the website.
+    </div>
+
+    <section id="letters-section">
+      <div class="letters-heading">
+        <div>
+          <div class="eyebrow">A letter for every hour</div>
+          <h2>Reasons I love you</h2>
+        </div>
+        <p id="unlocked-count">0 of 24 letters unlocked</p>
+      </div>
+
+      <div class="grid" id="letter-grid" aria-label="24 birthday letters"></div>
+    </section>
+
+    <section class="final-note" id="final-note">
+      <div class="big-heart">♥</div>
+      <h2>And if I had 24 more hours…</h2>
+      <p>
+        I'd spend every single one making you feel special and loved,
+        Because you deserve the best from me,
+        I fall harder and deeper with every passing hour,
+        I love my baby, my sweetheart, my everything and I wish so the best of the best always.
+      </p>
+    </section>
+
+  </main>
+
+  <div class="modal" id="letter-modal"
+       role="dialog" aria-modal="true"
+       aria-labelledby="modal-title" aria-hidden="true">
+    <article class="paper">
+      <button class="close" id="close-modal" aria-label="Close letter">×</button>
+      <div class="letter-number" id="modal-number">Letter 01 · 12:00 AM</div>
+      <h2 id="modal-title">A reason I love you</h2>
+      <div class="letter-copy" id="modal-copy"></div>
+      <div class="signoff" id="modal-signoff">Always yours ♡</div>
+
+      <div class="modal-actions">
+        <button id="prev-letter">← Previous</button>
+        <button id="next-letter">Next letter →</button>
+      </div>
+    </article>
+  </div>
+
+  <script>
+    /* ===================== CONFIG =====================
+       Change this to his birthday in Boston.
+       Format: YYYY-MM-DD
+       Example: const BIRTHDAY = '2026-11-02';
+       ================================================== */
+
+    const BIRTHDAY = '2026-10-13';
+    const TIME_ZONE = 'America/New_York';
+
+    const letters = [
+      {
+        title: 'Happy birthday my love',
+        text: 'You are my favourite person in this whole wide world. I love you in all your essence and your power. I love how you make me feel loved , secure and heard. You heal my inner child. Thank you for being the best version of yourself for me and thank you for pushing me to the best version of myself. I love , laugh and express harder when you are around. You mean the world to me. You are a wise 24 year old now.'
+      },
+      {
+        title: 'Happy birthday my love',
+        text: 'As it is 1 AM, you are always my number one priority in life. As I have always expressed, you are the person who stands in the number one place in my life and whom I love. You are also the 1st person I call when I am happy, sad or want to share a good news with. You are the 1st person who is in my mind when I wake up. You are the 1st person who has made me laugh so hard. You are the 1st person in this world whom I care about so deeply. And most importantly the number one is so special to me, because its the day I met you. I love you, Astitva.'
+      },
+      {
+        title: 'Happy birthday my love',
+        text: 'It is 2AM. A SECOND doesnt pass by where I dont think about you,A SECOND doesnt pass by where I love you, A SECOND doesnt pass by where I dont pray for your happiness, A SECOND doesnt pass by where I dont wanna be with you,A SECOND doesnt pass by where I dont care about you , A SECOND doesnt pass by where dont I feel that you are the beautiful gift that the universe has given me and you have changed my life for the better and you have  so much impact in my life and I am extremely grateful that you are with me. '
+      },
+      {
+        title: 'Happy birthday my love',
+        text: 'Its 3 in the morning, in my heart and mind thoughts about you are storming, new found love for you is forming, you make me fall for you even harder without an warning!'
+      },
+      {
+        title: 'Happy birthday my love',
+        text: 'I love your smile. There is this picture of yours that we took on the day we went to the temple and you wore an orange kurta and it is imprinted in my mind. I love how u smiled that day. It was so raw and genuine and u looked so happy during that day. I hope you feel the same happiness even now with me. I always try to make u smile that way and make you feel loved and happy. Love is really an understatement for the way I feel about you. What I do to you is something that probably has no words and it is deeper than love.'
+      },
+      {
+        title: 'Happy birthday my love',
+        text: 'Even though we are far far away, you are always close to my heart. You laugh makes me feel like Im at home and your voice is a melody that I can hear all day long. You are the gentlest soul I have ever met and I hope nothing in this world changes that about you. I hope the world treats you with kindess just like how you treat me. I love you baby.'
+      },
+      {
+        title: 'Happy birthday my love',
+        text: 'I love how to change your voice to make my voice in order to get understand how i feel. I know I am difficult but i feel u sure love a challenge. Thank you for never making me feel that I am hard to deal with and always catering to my whims and fancies. You are my rock and I hope i can spend the rest of my life together with you. You will always be the reason I smile the brightest and fly the highest.'
+      },
+      {
+        title: 'Happy birthday my love',
+        text: 'When I was a kid, I never understood what happily ever after met after a fairytale or a movie.Being with you is nothing less than a fairytale and each day you show the true meaning of happily ever after. The fairytale that you are creating for me is the most beautiful and most romatic and i hope you feel the same about my existence as well.'
+      },
+      {
+        title: 'Happy birthday my love',
+        text: 'Seeing you turn into the man that you are becoming has been quite a joyous event. Seeing you turn into a responsible yet fun-loving person who has dreams and aspirations makes my heart light up with joy. Seeing you work hard towards what you dream of and persevere through the trials and tribulations along the way makes my eyes swell up with pride. I hope Im always with you to see you achieve the finest things in life, and Ill always be your number one supporter.'
+      },
+      {
+        title: 'Happy birthday my love',
+        text: "My body is not filled with 70% of water, it is filled with 70% love for astitva and 30% horniness for astitva."
+      },
+      {
+        title: 'Happy birthday my love',
+        text: 'All romatic reels on insta make me think of you, all the love songs sound like you, the best painting i feel is created by you and the sweetest memories are the ones that are made by you.'
+      },
+      {
+        title: 'Happy birthday my love',
+        text: "When I was kid, I used to have a dream man and you are the perfect embodiment of it. I never thought someone as perfect was ever made by God/Anil & Dipti. You have the perfect eyes, the perfect voice, the perfect smile, the perfect teeth, the perfect nose, the perfect gyno, the perfect tummy, the perfect belly button , the perfect penis, the perfect nipples, the perfect nails, the perfect toes and the most perfect heart."
+      },
+      {
+        title: 'Happy birthday my love',
+        text: 'It is a crime that you are so far away from me. I crave your touch, your smell, your tiny gestures in person and seeing you daily. I miss you so hard.'
+      },
+      {
+        title: 'Happy birthday my love',
+        text: 'On the days you dont love yourself or are hard on yourself, remember that I am always around for you to talk to me. I will always remind you how you are doing so well and working so hard and I will try to soften the blow the world gives you. Because loving you was the easiest thing i ever did and i want to love you for the man you were and i dont want this cruel world to mould you into something you are not.'
+      },
+      {
+        title: 'Happy birthday my love',
+        text:'You are my four leafed clover , the rainbow when the rain is over, the most vibrant jewel in the crown and the person i try to find whenever life gives me a frown.'
+      },
+      {
+        title: 'Happy birthday my love',
+        text: 'I love how you make time and put in effort for things that are so important to you. You are consistent and determined and that is something I deeply admire about you. You are someone who is inspirational , motivational and people look up to you.'
+      },
+      {
+        title: 'Happy birthday my love',
+        text: "I love how you express yourself, I love the way you cry, I love the way youre full of emotions and I love the way you sigh. Most importantly I love the way you take care of yourself and make everyone around you feel loved, I love the way you are unapologetically yourself and I love the way that I can always keep you for myself! "
+      },
+      {
+        title: 'Happy birthday my love',
+        text: 'You are my man, my person , my comfort zone , my life , my love , my universe , my world, my moon, my satellite and nothing in this entire existence is better than you.'
+      },
+      {
+        title: 'Happy birthday my love',
+        text: 'Explaining how much I love you is the easiest thing in the world, talking about you for hours is my favourite hobby and having you in my life has become a necessity.'
+      },
+      {
+        title: 'Happy birthday my love',
+        text: 'Every day spent with you is a reminder to me that I am a lucky woman because i have such a gentle,loving and a nurturing soul in my life. I love how you teach me so many things (esp GRE words) and make me want to be better. You keep the foundation of our relationship intact by protraying virtues of love, loyalty, care and respect. You make life so much fun and positive.'
+      },
+      {
+        title: 'Happy birthday my love',
+        text: 'I hope your 24th birthday brings you 24K gold chains, 24 hours of productivity, 24 cans of beers and 24 kids with me!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+      },
+      {
+        title: 'Happy birthday my love',
+        text: 'I love your thick thighs, I love your tattoos, I love your creative mind and I wanna fuck you from behind. '
+      },
+      {
+        title: 'Happy birthday my love',
+        text: 'Being with you is my best decision, and i will always choose you without an hesitation.'
+      },
+      {
+        title: 'Happy birthday my love',
+        text: ' Happiest birthday to the best uno strategist , the best singer, my best friend and the worlds best bf. '
+      }
+    ];
+
+    const $ = id => document.getElementById(id);
+    let unlocked = 0;
+    let activeLetter = 0;
+    let lastFocusedElement = null;
+
+    function validBirthday(value) {
+      const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+      if (!match) return false;
+
+      const [year, month, day] = match.slice(1).map(Number);
+      const date = new Date(Date.UTC(year, month - 1, day));
+
+      return date.getUTCFullYear() === year &&
+        date.getUTCMonth() === month - 1 &&
+        date.getUTCDate() === day;
+    }
+
+    const configured = validBirthday(BIRTHDAY);
+
+    function partsInBoston(date = new Date()) {
+      const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: TIME_ZONE,
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hourCycle: 'h23'
+      }).formatToParts(date);
+
+      return Object.fromEntries(
+        parts.filter(p => p.type !== 'literal').map(p => [p.type, p.value])
+      );
+    }
+
+    function bostonDateString(p) {
+      return `${p.year}-${p.month}-${p.day}`;
+    }
+
+    function bostonMidnightTimestamp(dateString) {
+      const [y, m, d] = dateString.split('-').map(Number);
+      const target = Date.UTC(y, m - 1, d, 0, 0, 0);
+      let guess = target;
+
+      for (let i = 0; i < 5; i++) {
+        const p = partsInBoston(new Date(guess));
+        const shown = Date.UTC(
+          Number(p.year),
+          Number(p.month) - 1,
+          Number(p.day),
+          Number(p.hour),
+          Number(p.minute),
+          Number(p.second)
+        );
+        guess += target - shown;
+      }
+
+      return guess;
+    }
+
+    function getUnlockedCount(now = new Date()) {
+      if (!configured) return 0;
+
+      const p = partsInBoston(now);
+      const today = bostonDateString(p);
+
+      if (today < BIRTHDAY) return 0;
+      if (today > BIRTHDAY) return 24;
+
+      return Math.min(24, Number(p.hour) + 1);
+    }
+
+    function formatHour(hour) {
+      if (hour === 0) return '12:00 AM';
+      if (hour < 12) return `${hour}:00 AM`;
+      if (hour === 12) return '12:00 PM';
+      return `${hour - 12}:00 PM`;
+    }
+
+    function renderGrid() {
+      const grid = $('letter-grid');
+      grid.replaceChildren();
+
+      letters.forEach((letter, i) => {
+        const isOpen = i < unlocked;
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'envelope ' + (isOpen ? 'open' : 'locked');
+        button.disabled = !isOpen;
+
+        const number = document.createElement('span');
+        number.className = 'number';
+        number.textContent = `Letter ${String(i + 1).padStart(2, '0')}`;
+
+        const glyph = document.createElement('span');
+        glyph.className = 'glyph';
+        glyph.textContent = isOpen ? '✉' : '✧';
+        glyph.setAttribute('aria-hidden', 'true');
+
+        const label = document.createElement('span');
+        label.className = 'label';
+        label.textContent = isOpen ? letter.title : 'A little secret';
+
+        const state = document.createElement('span');
+        state.className = 'state';
+        state.textContent = isOpen
+          ? 'Open again ↗'
+          : `Unlocks at ${formatHour(i)}`;
+
+        button.append(number, glyph, label, state);
+
+        if (isOpen) {
+          button.addEventListener('click', () => openLetter(i));
+        }
+
+        grid.appendChild(button);
+      });
+
+      $('unlocked-count').textContent = `${unlocked} of 24 letters unlocked`;
+      $('progress').style.width = `${unlocked / 24 * 100}%`;
+      $('progress').setAttribute('role', 'progressbar');
+      $('progress').setAttribute('aria-valuemin', '0');
+      $('progress').setAttribute('aria-valuemax', '24');
+      $('progress').setAttribute('aria-valuenow', String(unlocked));
+      $('final-note').classList.toggle('show', unlocked === 24);
+    }
+
+    function updateClock() {
+      const now = new Date();
+      const p = partsInBoston(now);
+      const time = new Intl.DateTimeFormat('en-US', {
+        timeZone: TIME_ZONE,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+      }).format(now);
+
+      $('clock').firstChild.textContent = time;
+      $('clock-caption').textContent =
+        `Boston, Massachusetts · ${p.month}/${p.day}/${p.year}`;
+
+      if (configured) {
+        $('birthday-date').textContent =
+          new Intl.DateTimeFormat('en-US', {
+            timeZone: TIME_ZONE,
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric'
+          }).format(new Date(`${BIRTHDAY}T12:00:00Z`));
+      } else {
+        $('birthday-date').textContent = 'Birthday date not set';
+      }
+
+      if (!configured) {
+        $('setup-warning').classList.add('show');
+        $('status-label').textContent = 'One tiny setup step';
+        $('status-title').textContent = 'Your first letter is waiting.';
+        $('status-desc').textContent =
+          'Set his birthday in the CONFIG section of this file before sharing.';
+        unlocked = 0;
+        renderGrid();
+        return;
+      }
+
+      $('setup-warning').classList.remove('show');
+      unlocked = getUnlockedCount(now);
+
+      const today = bostonDateString(p);
+
+      if (today < BIRTHDAY) {
+        $('status-label').textContent = 'Until your birthday begins';
+        $('status-title').textContent = 'The first letter is waiting.';
+
+        const ms = Math.max(0, bostonMidnightTimestamp(BIRTHDAY) - now.getTime());
+        const days = Math.floor(ms / 86400000);
+        const hours = Math.floor(ms % 86400000 / 3600000);
+        const minutes = Math.floor(ms % 3600000 / 60000);
+        const seconds = Math.floor(ms % 60000 / 1000);
+        const parts = [];
+
+        if (days) parts.push(`${days} day${days === 1 ? '' : 's'}`);
+        parts.push(`${hours} hour${hours === 1 ? '' : 's'}`);
+        parts.push(`${minutes} minute${minutes === 1 ? '' : 's'}`);
+        parts.push(`${seconds} second${seconds === 1 ? '' : 's'}`);
+
+        $('status-desc').textContent =
+          `${parts.join(', ')} until the first letter unlocks at midnight in Boston.`;
+      } else if (today === BIRTHDAY && Number(p.hour) < 23) {
+        $('status-label').textContent = 'Your birthday, hour by hour';
+        $('status-title').textContent =
+          `Letter ${String(unlocked).padStart(2, '0')} is yours.`;
+        $('status-desc').textContent =
+          `The next letter unlocks at ${formatHour(Number(p.hour) + 1)} Boston time. Every letter you've opened will stay here.`;
+      } else {
+        $('status-label').textContent = 'Every letter, always yours';
+        $('status-title').textContent = 'All 24 reasons are waiting.';
+        $('status-desc').textContent =
+          'Come back to any letter, any time. There will always be another reason to love you.';
+      }
+
+      renderGrid();
+
+      if ($('letter-modal').classList.contains('show')) {
+        $('prev-letter').disabled = activeLetter === 0;
+        $('next-letter').disabled = activeLetter >= unlocked - 1;
+      }
+    }
+
+    function openLetter(i) {
+      if (i < 0 || i >= unlocked || i >= letters.length) return;
+
+      activeLetter = i;
+      const letter = letters[i];
+
+      $('modal-number').textContent =
+        `Letter ${String(i + 1).padStart(2, '0')} · ${formatHour(i)}`;
+      $('modal-title').textContent = letter.title;
+      $('modal-copy').textContent = letter.text;
+      $('modal-signoff').textContent =
+        i === 23 ? 'All my love, always ♥' : 'Always yours ♡';
+
+      $('prev-letter').disabled = i === 0;
+      $('next-letter').disabled = i >= unlocked - 1;
+
+      lastFocusedElement = document.activeElement;
+      $('letter-modal').classList.add('show');
+      $('letter-modal').setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      $('close-modal').focus();
+    }
+
+    function closeLetter() {
+      $('letter-modal').classList.remove('show');
+      $('letter-modal').setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+
+      if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+        lastFocusedElement.focus();
+      }
+    }
+
+    $('begin-btn').addEventListener('click', () => {
+      $('letters-section').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    $('close-modal').addEventListener('click', closeLetter);
+
+    $('letter-modal').addEventListener('click', event => {
+      if (event.target === $('letter-modal')) closeLetter();
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && $('letter-modal').classList.contains('show')) {
+        closeLetter();
+      }
+    });
+
+    $('prev-letter').addEventListener('click', () => {
+      if (activeLetter > 0) openLetter(activeLetter - 1);
+    });
+
+    $('next-letter').addEventListener('click', () => {
+      if (activeLetter < unlocked - 1) openLetter(activeLetter + 1);
+    });
+
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
